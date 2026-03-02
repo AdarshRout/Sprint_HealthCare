@@ -1,0 +1,27 @@
+2026-03-02 14:58:38 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 14:58:38 [main] INFO  com.healthcare.HealthcarePipelineApp -   Healthcare Pipeline — Starting       
+2026-03-02 14:58:38 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:03:59 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:03:59 [main] INFO  com.healthcare.HealthcarePipelineApp -   Healthcare Pipeline — Starting       
+2026-03-02 15:03:59 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:07:15 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:07:15 [main] INFO  com.healthcare.HealthcarePipelineApp -   Healthcare Pipeline — Starting       
+2026-03-02 15:07:15 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:07:15 [main] INFO  com.healthcare.config.AppConfig - app.properties loaded successfully.
+2026-03-02 15:07:15 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Building Google Sheets API service...
+2026-03-02 15:07:15 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Loading credentials from: src/main/resources/credentials.json
+2026-03-02 15:07:16 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Google Sheets service built successfully.
+2026-03-02 15:11:04 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:11:04 [main] INFO  com.healthcare.HealthcarePipelineApp -   Healthcare Pipeline — Starting       
+2026-03-02 15:11:04 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:11:04 [main] INFO  com.healthcare.config.AppConfig - app.properties loaded successfully.
+2026-03-02 15:11:04 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Building Google Sheets API service...
+2026-03-02 15:11:04 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Loading credentials from: src/main/resources/credentials.json
+2026-03-02 15:11:04 [main] INFO  com.healthcare.config.GoogleSheetsConfig - Google Sheets service built successfully.
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - Total records fetched: 5500
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - Record 1: PatientRawRecord{row=2, name='Sharon Hernandez', phone='8485369220', email='sharon.hernandez@yahoo.com'}
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - Record 2: PatientRawRecord{row=3, name='jonathan Brown', phone='', email=''}
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - Record 3: PatientRawRecord{row=4, name='thomas Mitchell', phone='8839239679', email='thomasmitchell'}
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp -   Pipeline test complete               
+2026-03-02 15:11:08 [main] INFO  com.healthcare.HealthcarePipelineApp - ========================================
