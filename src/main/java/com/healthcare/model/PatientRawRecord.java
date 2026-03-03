@@ -31,6 +31,7 @@ public class PatientRawRecord {
     // Section 3 - Visit Information
     private String rawAdmissionDate;
     private String rawDischargeDate;
+	private String rawPatientStatus;
     private String rawAdmissionStatus;
     private String rawPaymentStatus;
     private String rawInsuranceStatus;
@@ -65,11 +66,12 @@ public class PatientRawRecord {
         r.rawCholesterol        = safeGet(row, 15);
         r.rawAdmissionDate      = safeGet(row, 16);
         r.rawDischargeDate      = safeGet(row, 17);
-        r.rawAdmissionStatus    = safeGet(row, 18);
-        r.rawPaymentStatus      = safeGet(row, 19);
-        r.rawInsuranceStatus    = safeGet(row, 20);
-        r.rawBillAmount         = safeGet(row, 21);
-        r.rawDoctorId           = safeGet(row, 22);
+		r.rawPatientStatus      = safeGet(row, 18); 
+        r.rawAdmissionStatus    = safeGet(row, 19);
+        r.rawPaymentStatus      = safeGet(row, 20);
+        r.rawInsuranceStatus    = safeGet(row, 21);
+        r.rawBillAmount         = safeGet(row, 22);
+        r.rawDoctorId           = safeGet(row, 23);
         return r;
     }
 
@@ -293,6 +295,11 @@ public class PatientRawRecord {
 		this.rawDoctorId = rawDoctorId;
 	}
 
-    
+	public String getRawPatientStatus() {
+		return rawPatientStatus;
+	}
 
+	public void setRawPatientStatus(String rawPatientStatus) {
+		this.rawPatientStatus = rawPatientStatus;
+	}
 }
