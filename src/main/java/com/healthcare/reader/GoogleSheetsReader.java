@@ -39,18 +39,45 @@ public class GoogleSheetsReader {
     // Reads only NEW rows since last processed row
     public List<PatientRawRecord> readNewRowsSince(
             int lastProcessedRow) {
-
-        // DEFENSIVE: invalid row number
-        if (lastProcessedRow < 1) {
-            LOG.warn("lastProcessedRow={} is invalid. " +
-                     "Defaulting to 1.", lastProcessedRow);
-            lastProcessedRow = 1;
-        }
-
-        int startRow = lastProcessedRow + 1;
-        LOG.info("Reading new rows starting from row {}.", 
+            
+        // startRow is 1-based sheet row to begin reading
+        int startRow = lastProcessedRow ;
+            
+        LOG.info("Reading new rows from sheet row: {}",
             startRow);
-        return readRows(startRow);
+            
+        try {
+            List<PatientRawRecord> rows =
+                readRows(startRow);
+        
+            if (rows.isEmpty()) {
+                LOG.info("No new rows found " +
+                         "from row {}.", startRow);
+            }
+            return rows;
+
+        } catch (RuntimeException e) {
+
+            // Check both the message AND the cause message
+            String msg = e.getMessage() != null
+                ? e.getMessage() : "";
+            String causeMsg = (e.getCause() != null &&
+                e.getCause().getMessage() != null)
+                ? e.getCause().getMessage() : "";
+
+            if (msg.contains("exceeds grid limits") ||
+                    causeMsg.contains("exceeds grid limits")) {
+                    
+                LOG.info("No new rows to read — " +
+                         "start row {} exceeds sheet " +
+                         "size. Nothing to process.",
+                    startRow);
+                return java.util.Collections.emptyList();
+            }
+        
+            // Any other error is a real failure — rethrow
+            throw e;
+        }
     }
 
     private List<PatientRawRecord> readRows(int startRow) {

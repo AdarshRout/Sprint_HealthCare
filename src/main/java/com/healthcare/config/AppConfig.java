@@ -113,4 +113,31 @@ public class AppConfig {
         props.setProperty("last.processed.row", 
             String.valueOf(row));
     }
+
+    /**
+     * Persists updated last.processed.row back to
+     * app.properties file so it survives JVM restart.
+     */
+    public void persistLastProcessedRow(int row) {
+        props.setProperty("last.processed.row",
+            String.valueOf(row));
+    
+        // Find app.properties on file system
+        String propsPath = "src/main/resources/app.properties";
+    
+        try (java.io.FileOutputStream fos =
+                new java.io.FileOutputStream(propsPath)) {
+                
+            props.store(fos,
+                "Updated by pipeline — last processed row");
+            
+            LOG.info("Persisted last.processed.row={} " +
+                     "to app.properties", row);
+            
+        } catch (java.io.IOException e) {
+            LOG.error("Failed to persist last.processed.row: {}",
+                e.getMessage());
+        }
+    }
+
 }

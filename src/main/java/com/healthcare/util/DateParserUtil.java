@@ -23,6 +23,9 @@ public class DateParserUtil {
             DateTimeFormatter.ofPattern("dd/MM/yyyy"),   // 22/05/1970
             DateTimeFormatter.ofPattern("MM/dd/yyyy"),   // 05/06/1952
             DateTimeFormatter.ofPattern("dd-MM-yyyy"),   // 22-05-1970
+            DateTimeFormatter.ofPattern("yyyy-MM-dd"),   // 1970-05-22
+            DateTimeFormatter.ofPattern("d/M/yyyy"),    // 3/7/2020
+            DateTimeFormatter.ofPattern("M/d/yyyy"),    // 4/20/1980
             DateTimeFormatter.ofPattern("dd.MM.yyyy"),   // 22.05.1970
             DateTimeFormatter.ofPattern("yyyyMMdd"),     // 19900304
             DateTimeFormatter.ofPattern("dd MMM yyyy"),  // 05 Jun 2023
