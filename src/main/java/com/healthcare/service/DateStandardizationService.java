@@ -48,36 +48,54 @@ public class DateStandardizationService {
             String cleanDob = DateParserUtil
                 .parseAndFormat(record.getRawDob());
             if (!cleanDob.equals(record.getRawDob())) {
-                LOG.debug("UC-4 | Row {} | dob '{}' → '{}'",
-                    record.getSheetRowNumber(),
-                    record.getRawDob(), cleanDob);
+                if (cleanDob.equals("INVALID")) {
+                    LOG.warn("UC-4 | Row {} | dob '{}' → INVALID",
+                        record.getSheetRowNumber(),
+                        record.getRawDob());
+                    hasInvalid = true;
+                } else {
+                    LOG.debug("UC-4 | Row {} | dob '{}' → '{}'",
+                        record.getSheetRowNumber(),
+                        record.getRawDob(), cleanDob);
+                }
                 record.setRawDob(cleanDob);
                 changed = true;
-                if (cleanDob.equals("INVALID")) hasInvalid = true;
             }
-
+            
             // Fix Admission Date
             String cleanAdm = DateParserUtil
                 .parseAndFormat(record.getRawAdmissionDate());
             if (!cleanAdm.equals(record.getRawAdmissionDate())) {
-                LOG.debug("UC-4 | Row {} | admissionDate '{}' → '{}'",
-                    record.getSheetRowNumber(),
-                    record.getRawAdmissionDate(), cleanAdm);
+                if (cleanAdm.equals("INVALID")) {
+                    LOG.warn("UC-4 | Row {} | admissionDate '{}' → INVALID",
+                        record.getSheetRowNumber(),
+                        record.getRawAdmissionDate());
+                    hasInvalid = true;
+                } else {
+                    LOG.debug("UC-4 | Row {} | admissionDate '{}' → '{}'",
+                        record.getSheetRowNumber(),
+                        record.getRawAdmissionDate(), cleanAdm);
+                }
                 record.setRawAdmissionDate(cleanAdm);
                 changed = true;
-                if (cleanAdm.equals("INVALID")) hasInvalid = true;
             }
-
+            
             // Fix Discharge Date
             String cleanDis = DateParserUtil
                 .parseAndFormat(record.getRawDischargeDate());
             if (!cleanDis.equals(record.getRawDischargeDate())) {
-                LOG.debug("UC-4 | Row {} | dischargeDate '{}' → '{}'",
-                    record.getSheetRowNumber(),
-                    record.getRawDischargeDate(), cleanDis);
+                if (cleanDis.equals("INVALID")) {
+                    LOG.warn("UC-4 | Row {} | dischargeDate '{}' → INVALID",
+                        record.getSheetRowNumber(),
+                        record.getRawDischargeDate());
+                    hasInvalid = true;
+                } else {
+                    LOG.debug("UC-4 | Row {} | dischargeDate '{}' → '{}'",
+                        record.getSheetRowNumber(),
+                        record.getRawDischargeDate(), cleanDis);
+                }
                 record.setRawDischargeDate(cleanDis);
                 changed = true;
-                if (cleanDis.equals("INVALID")) hasInvalid = true;
             }
 
             if (changed)  fixedCount++;

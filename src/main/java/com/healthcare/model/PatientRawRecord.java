@@ -20,7 +20,7 @@ public class PatientRawRecord {
 
     // Section 2 - Clinical Data
     private String rawDepartment;
-    private String rawDiagnosisCode;
+    private String rawDiagnosis;
     private String rawSystolic;
     private String rawDiastolic;
     private String rawWeightKg;
@@ -37,6 +37,17 @@ public class PatientRawRecord {
     private String rawInsuranceStatus;
     private String rawBillAmount;
     private String rawDoctorId;
+
+	// Section 4 - Derived Fields (UC-8)
+	private String bmi;
+	private String map;
+	private String lengthOfStayDays;
+
+	// Section 5 - Derived Categories (UC-10)
+	private String bmiCategory;
+	private String bloodSugarCategory;
+	private String ageGroup;
+	private String cholesterolCategory;
 
     public PatientRawRecord() {}
 
@@ -57,7 +68,7 @@ public class PatientRawRecord {
         r.rawEmail              = safeGet(row, 6);
         r.rawBloodGroup         = safeGet(row, 7);
         r.rawDepartment         = safeGet(row, 8);
-        r.rawDiagnosisCode      = safeGet(row, 9);
+        r.rawDiagnosis      = safeGet(row, 9);
         r.rawSystolic           = safeGet(row, 10);
         r.rawDiastolic          = safeGet(row, 11);
         r.rawWeightKg           = safeGet(row, 12);
@@ -183,12 +194,12 @@ public class PatientRawRecord {
 		this.rawDepartment = rawDepartment;
 	}
 
-	public String getRawDiagnosisCode() {
-		return rawDiagnosisCode;
+	public String getRawDiagnosis() {
+		return rawDiagnosis;
 	}
 
-	public void setRawDiagnosisCode(String rawDiagnosisCode) {
-		this.rawDiagnosisCode = rawDiagnosisCode;
+	public void setRawDiagnosis(String rawDiagnosis) {
+		this.rawDiagnosis = rawDiagnosis;
 	}
 
 	public String getRawSystolic() {
@@ -197,6 +208,62 @@ public class PatientRawRecord {
 
 	public void setRawSystolic(String rawSystolic) {
 		this.rawSystolic = rawSystolic;
+	}
+
+	public String getBmiCategory() {
+		return bmiCategory;
+	}
+
+	public void setBmiCategory(String bmiCategory) {
+		this.bmiCategory = bmiCategory;
+	}
+
+	public String getBloodSugarCategory() {
+		return bloodSugarCategory;
+	}
+
+	public void setBloodSugarCategory(String bloodSugarCategory) {
+		this.bloodSugarCategory = bloodSugarCategory;
+	}
+
+	public String getAgeGroup() {
+		return ageGroup;
+	}
+
+	public void setAgeGroup(String ageGroup) {
+		this.ageGroup = ageGroup;
+	}
+
+	public String getCholesterolCategory() {
+		return cholesterolCategory;
+	}
+
+	public void setCholesterolCategory(String cholesterolCategory) {
+		this.cholesterolCategory = cholesterolCategory;
+	}
+
+	public String getBmi() {
+		return bmi;
+	}
+
+	public void setBmi(String bmi) {
+		this.bmi = bmi;
+	}
+
+	public String getMap() {
+		return map;
+	}
+
+	public void setMap(String map) {
+		this.map = map;
+	}
+
+	public String getLengthOfStayDays() {
+		return lengthOfStayDays;
+	}
+
+	public void setLengthOfStayDays(String lengthOfStayDays) {
+		this.lengthOfStayDays = lengthOfStayDays;
 	}
 
 	public String getRawDiastolic() {

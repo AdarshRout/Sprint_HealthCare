@@ -61,7 +61,7 @@
         </Logger>
 
         <!-- Everything else -->
-        <Root level="INFO">
+        <Root level="DEBUG">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="AppFile"/>
             <AppenderRef ref="ErrorFile"/>
